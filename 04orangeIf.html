@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let orangeCost = Math.floor(Math.random() * 10 + 25);
+        let orangeWeight = Math.floor(Math.random() * 20+1);
+        let totalCost = orangeCost * orangeWeight;
+        function Cost(totalCost) {
+            if (totalCost > 500) return Math.floor(totalCost * 0.9);
+            else return totalCost;
+        }
+        document.write(`橘子單價為${orangeCost}，橘子重量為${orangeWeight}，總價為:${Cost(totalCost)}`)
+
+    </script>
+</body>
+
+</html>

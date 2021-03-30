@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let orangeRank = Math.floor(Math.random() * 3 + 1)
+        let orangeWeight = Math.floor(Math.random() * 150);
+        let orangeCost;
+        switch (orangeRank) {
+            case 1:
+                if (orangeWeight > 100) orangeCost = 20;
+                else if (orangeWeight > 40 && orangeWeight <= 100) orangeCost = 25;
+                else orangeCost = 30;
+                break;
+            case 2:
+                if (orangeWeight > 100) orangeCost = 15;
+                else if (orangeWeight > 40 && orangeWeight <= 100) orangeCost = 20;
+                else orangeCost = 25;
+                break;
+            default:
+                if (orangeWeight > 100) orangeCost = 10;
+                else if (orangeWeight > 40 && orangeWeight <= 100) orangeCost = 15;
+                else orangeCost = 20;
+                break;
+        }
+        let totalCost = orangeCost * orangeWeight;
+
+        document.write(`橘子的等級為${orangeRank}，橘子單價為${orangeCost}，橘子重量為${orangeWeight}，總價為:${totalCost}`)
+
+    </script>
+</body>
+
+</html>

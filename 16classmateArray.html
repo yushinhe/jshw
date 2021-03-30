@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-spacing: 0;
+        }
+
+        td,
+        th {
+            padding: 1rem;
+        }
+
+        tbody tr:nth-of-type(odd) {
+            background-color: #eeeeee;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        let arr = ['學號', '姓名', '電話', '地址']
+        let arr1 = [['94951001', '黃一丁', '0911000333', '中壢市中大路1號'], ['94951002', '劉一毛', '0922999887', '高雄市中山路2號'], ['94951003', '張大化', '0933555779', '台北市師大路3號']]
+console.log(arr1[2][1]);
+        document.write('<table>')
+        document.write(`<caption>好媒媒班級通訊錄</caption>`)
+        document.write('<thead>')
+        document.write('<tr>')
+        for (let i = 0; i < 4; i++) {
+            document.write(`<th>${arr[i]} </th>`)
+        }
+        document.write('</tr>')
+        document.write('</thead>')
+        document.write('<tbody>')
+        for (let i = 0; i < 3; i++) {
+            document.write('<tr>')
+            for (let j = 0; j < 4; j++) {
+                document.write(`<td>${arr1[i][j]} </td>`)
+            }
+            document.write('</tr>')
+        }
+        document.write('</tbody>')
+        document.write('</table>')
+    </script>
+
+</html>
