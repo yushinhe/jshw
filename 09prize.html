@@ -13,13 +13,12 @@
 
         let total = 0
         for (let i = 1; i < 800; i++) {
-            let amount = Math.ceil(Math.random() * 10)
+            let amount = Math.floor(Math.random() * 11)
             document.write(`第${i}次摸彩的金額為${amount}佰元<br>`)
             if (amount == 0) break
             total += amount
         }
-        console.log(Math.ceil(9.5));
-       
+            
         if ( total >100) {
             document.write(`摸彩的總金額為${parseInt(total / 100)}萬${(parseInt(total % 100) - parseInt(total % 10)) /10}仟${total % 10}佰元<br>`)
         } else if ( total >= 10 &&total < 100) {
