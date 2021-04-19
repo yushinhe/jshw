@@ -23,7 +23,7 @@
             let sum = 0;
             if (idNumber.length != 10) {
                 alert('長度錯誤');
-                idNumber = '';
+                document.getElementById('id-number').value = '';
                 return
             }
             let countryId = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'X', 'Y', 'W', 'Z', 'I', 'O']
@@ -31,12 +31,12 @@
             let numConfirm = /[0 - 9]/;
             if (countryId.indexOf(idNumber[0].toUpperCase()) == -1) {
                 alert('區域碼錯誤');
-                idNumber = '';
+                document.getElementById('id-number').value = '';
                 return
             }
             if (genderId.indexOf(idNumber[1]) == -1) {
                 alert('身分碼錯誤');
-                idNumber = '';
+                document.getElementById('id-number').value = '';
                 return
             }
             // 轉換idNumber[0]值
@@ -60,17 +60,18 @@
             function validation(params) {
                 if (params % 10 == 0) {
                     alert('驗證成功')
-                    idNumber = '';
+                    document.getElementById('id-number').value = '';
                     return
                 }
                 else {
                     alert('驗證失敗')
-                    idNumber = '';
+                    document.getElementById('id-number').value = '';
                     return
                 }
             }
             validation(sum)
         })
+
     </script>
 </body>
 
