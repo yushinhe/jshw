@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <label for="id-number">身分證號碼驗證</label>
+        <input type="text" id="id-number">
+        <input type="button" value="提交" id="submit">
+    </form>
+    <script>
+        let submit = document.getElementById('submit');
+        submit.addEventListener('click', () => {
+            let idNumber = document.getElementById('id-number').value;
+            idNumber = Array.from(idNumber);
+            let muiltNum = ['8', '7', '6', '5', '4', '3', '2', '1', '1']
+            let sum = 0;
+            if (idNumber.length != 10) {
+                alert('長度錯誤');
+                idNumber = '';
+                return
+            }
+            let countryId = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'X', 'Y', 'W', 'Z', 'I', 'O']
+            let genderId = ['1', '2', '8', '9']
+            let numConfirm = /[0 - 9]/;
+            if (countryId.indexOf(idNumber[0].toUpperCase()) == -1) {
+                alert('區域碼錯誤');
+                idNumber = '';
+                return
+            }
+            if (genderId.indexOf(idNumber[1]) == -1) {
+                alert('身分碼錯誤');
+                idNumber = '';
+                return
+            }
+            // 轉換idNumber[0]值
+            let firstChar = idNumber.shift();
+            function convertFirstChar() {
+                for (let i = 0; i < countryId.length; i++) {
+                    if (firstChar == countryId[i]) {
+                        i += 10;
+                        result = parseInt(i / 10) + (i % 10 * 9);
+                        return result;
+                    }
+                }
+            }
+            //加總
+            for (let i = 0; i < idNumber.length; i++) {
+                sum += (parseInt(idNumber[i]) * parseInt(muiltNum[i]))
+            }
+            sum += convertFirstChar()
+
+            //   驗證
+            function validation(params) {
+                if (params % 10 == 0) {
+                    alert('驗證成功')
+                    idNumber = '';
+                    return
+                }
+                else {
+                    alert('驗證失敗')
+                    idNumber = '';
+                    return
+                }
+            }
+            validation(sum)
+        })
+    </script>
+</body>
+
+</html>
